@@ -1,0 +1,105 @@
+/* public/css/app.css */
+
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Светло-серый фон */
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    background-color: #ffffff; /* Белый фон для контейнера */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Закругленные углы */
+}
+
+/* Навигационная панель */
+nav {
+    background: #343a40; /* Темно-серый фон */
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffc107; /* Желтый */
+    transform: scale(1.1);
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Закругленные углы */
+    overflow: hidden; /* Скрыть переполнение */
+}
+
+table, th, td {
+    border: 1px solid #343a40; /* Темно-серая граница */
+}
+
+th, td {
+    padding: 20px;
+    text-align: left;
+}
+
+th {
+    background-color: #495057; /* Темно-синий фон для заголовков */
+    color: #ffffff; /* Белый текст */
+    font-weight: bold;
+    text-transform: uppercase; /* Заглавные буквы */
+}
+
+td {
+    background-color: #ffffff; /* Белый фон для ячеек */
+    transition: background-color 0.3s; /* Плавный переход фона */
+}
+
+td:hover {
+    background-color: #e9ecef; /* Светло-серый при наведении */
+}
+
+/* Кнопки */
+.btn {
+    background-color: #007bff; /* Синий */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Красный */
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}

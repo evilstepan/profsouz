@@ -1,0 +1,852 @@
+/* Admin Panel Styles */
+:root {
+    --primary-color: #3b82f6; /* Blue 500 */
+    --secondary-color: #60a5fa; /* Blue 400 */
+    --background-color: #f3f4f6; /* Gray 100 */
+    --card-background: #ffffff; /* White */
+    --text-color: #1f2937; /* Gray 900 */
+    --border-color: #e5e7eb; /* Gray 200 */
+    --hover-color: #f9fafb; /* Gray 50 */
+    --danger-color: #ef4444; /* Red 500 */
+    --success-color: #22c55e; /* Green 500 */
+    --warning-color: #f59e0b; /* Yellow 500 */
+    --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --card-hover-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+    --sidebar-bg: #343a40; /* Darker Gray */
+    --sidebar-text: #cbd5e0; /* Gray 300 */
+    --sidebar-hover: #4a5568; /* Darker Gray */
+    --sidebar-active-bg: #e5e7eb; /* Gray 200 */
+    --sidebar-active-text: #1f2937; /* Gray 900 */
+    --text-muted: #6b7280; /* Gray 500 */
+}
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+/* Sidebar Styles */
+.admin-sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 1.5rem 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: var(--card-shadow);
+    z-index: 1000;
+    color: var(--sidebar-text);
+}
+
+.admin-sidebar-header {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-sidebar-header h2 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.admin-user-info {
+    font-size: 0.9rem;
+    color: var(--sidebar-text);
+}
+
+.admin-user-info p {
+    margin: 0 0 0.1rem 0;
+    font-weight: 500;
+}
+
+.admin-user-info span {
+    font-size: 0.75rem;
+    color: var(--sidebar-text);
+    opacity: 0.8;
+}
+
+.admin-nav {
+    padding: 0 1rem;
+}
+
+.admin-nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.9rem 1rem;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    margin-bottom: 0.5rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+}
+
+.admin-nav a:last-child {
+    border-bottom: none; /* Remove separator for the last item */
+}
+
+.admin-nav a i {
+    font-size: 1.3rem;
+    width: 22px;
+    text-align: center;
+    color: var(--sidebar-text);
+}
+
+.admin-nav a:hover {
+    background-color: var(--sidebar-hover);
+    color: white;
+}
+
+.admin-nav a:hover i {
+    color: white;
+}
+
+.admin-nav a.active {
+    background-color: var(--sidebar-hover);
+    color: white;
+    box-shadow: var(--card-shadow); /* Optional: keep shadow for subtle highlight */
+}
+
+.admin-nav a.active i {
+    color: white;
+}
+
+/* Main Content Styles */
+.admin-main {
+    flex: 1;
+    margin-left: 250px;
+    padding: 1.5rem;
+    max-width: calc(100% - 250px);
+}
+
+.admin-header {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Card Styles */
+.admin-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Increased min-width */
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-card {
+    background-color: var(--card-background);
+    border-radius: 0.5rem;
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-card:hover {
+    box-shadow: var(--card-hover-shadow);
+}
+
+.admin-card-link {
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit color from parent */
+    display: flex; /* Ensure the whole card is clickable */
+    flex-direction: column;
+}
+
+.admin-card-link .admin-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    padding: 1rem 0;
+}
+
+.admin-card-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+}
+
+.admin-card-link h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.admin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.admin-card-body {
+    flex: 1;
+    margin-bottom: 0.5rem;
+}
+
+.admin-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    font-size: 1.25rem;
+}
+
+.admin-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.admin-info-item i {
+    width: 28px;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.admin-info-item span {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.25rem;
+}
+
+/* Общие стили для футера карточки */
+.admin-card-footer {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Specific styles for users section */
+.admin-cards .admin-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.admin-cards .admin-card-footer .button-group {
+    width: 100%;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-start;
+}
+
+.role-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.role-controls label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.role-controls .admin-form-input.role-select {
+    width: 100%;
+}
+
+/* Status Controls Styles (для заявок) */
+.status-controls {
+    display: flex;
+    flex-direction: column; /* Stack label and select */
+    gap: 0.5rem; /* Space between label and select */
+}
+
+.status-controls .admin-form-input {
+    /* Ensure select takes full width in its container */
+    width: 100%;
+}
+
+/* Button Group Styles (для заявок) */
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.button-group .status-form,
+.button-group .delete-form,
+.button-group .update-role-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.button-group .status-form button,
+.button-group .delete-form button,
+.button-group .update-role-form button {
+    flex-shrink: 0;
+    width: auto;
+    white-space: nowrap;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    padding: 0.15rem 0.6rem;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-transform: uppercase;
+}
+
+.status-badge::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.status-active {
+    background-color: #d1fae5; /* Green 100 */
+    color: #065f46; /* Green 800 */
+}
+
+.status-pending {
+    background-color: #fef3c7; /* Yellow 100 */
+    color: #92400e; /* Yellow 800 */
+}
+
+.status-rejected {
+    background-color: #fee2e2; /* Red 100 */
+    color: #991b1b; /* Red 800 */
+}
+
+/* New Status Badges for Roles */
+.status-user {
+    background-color: #e0f2f7; /* Light Blue 100 */
+    color: #075985; /* Cyan 800 */
+}
+
+.status-organizer {
+    background-color: #fce5cd; /* Orange 100 */
+    color: #9a3412; /* Orange 800 */
+}
+
+.status-admin {
+    background-color: #d1fae5; /* Green 100 (можно использовать тот же цвет, что и active, или выбрать другой) */
+    color: #065f46; /* Green 800 */
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+    .admin-card-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .admin-card-footer .status-controls {
+        width: 100%;
+    }
+
+    .admin-card-footer .button-group {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .button-group .status-form,
+    .button-group .delete-form,
+    .button-group .update-role-form {
+        flex: 1;
+    }
+
+    .button-group .status-form button,
+    .button-group .delete-form button,
+    .button-group .update-role-form button {
+        width: 100%;
+    }
+
+    .role-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .role-controls label {
+        text-align: left;
+    }
+
+    .role-controls .admin-form-input.role-select,
+    .role-controls .btn-full-width {
+        width: 100%;
+    }
+
+    .update-role-form,
+    .delete-form {
+        width: 100%;
+        flex-basis: auto; /* Сброс flex-basis на маленьких экранах */
+    }
+
+    /* Status Controls and Button Group for Orders on small screens */
+    .admin-card-footer .status-controls,
+    .admin-card-footer .button-group {
+        flex-direction: column; /* Вертикально на маленьких экранах */
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .admin-card-footer .status-controls .admin-form-input {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .admin-card-footer .button-group .btn {
+        width: 100%;
+    }
+
+    .admin-cards .admin-card-footer .button-group {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+/* Common button styles for both sections */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    transition: all 0.15s ease-in-out;
+    text-decoration: none;
+    line-height: 1.5;
+    min-width: 100px;
+    gap: 0.5rem;
+}
+
+/* Specific button styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-danger {
+    color: white;
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+    border-color: #dc2626;
+}
+
+/* Button group styles for both sections */
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+/* Form styles within button groups */
+.button-group .status-form,
+.button-group .delete-form,
+.button-group .update-role-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.button-group .status-form button,
+.button-group .delete-form button,
+.button-group .update-role-form button {
+    flex-shrink: 0;
+    width: auto;
+    white-space: nowrap;
+}
+
+/* Card footer styles */
+.admin-card-footer {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Specific styles for orders section */
+.admin-card-footer .status-controls {
+    flex-grow: 1;
+}
+
+.admin-card-footer .button-group {
+    flex-shrink: 0;
+}
+
+/* Search Form Styles */
+.admin-search-form {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.admin-search-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.admin-search-wrapper:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.admin-search-input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: transparent;
+}
+
+.admin-search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.admin-search-btn {
+    padding: 0.8rem 1rem;
+    background-color: transparent;
+    border: none;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.admin-search-btn i {
+    font-size: 1.1rem;
+}
+
+/* Pagination Styles */
+.admin-pagination {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-pagination .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.375rem; /* Smaller gap */
+}
+
+.admin-pagination .page-item {
+    display: inline-block;
+}
+
+.admin-pagination .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.2rem;
+    height: 2.2rem;
+    padding: 0 0.6rem;
+    border-radius: 0.375rem;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.admin-pagination .page-link:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.admin-pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.admin-pagination .page-item.disabled .page-link {
+    background-color: var(--card-background);
+    border-color: var(--border-color);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* Empty State */
+.admin-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
+.admin-empty i {
+    font-size: 3rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.admin-empty p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.admin-empty span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem 1.5rem;
+    }
+
+    .admin-main {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .admin-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .admin-sidebar-header {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    .admin-nav {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+     .admin-nav a {
+        padding: 0.9rem 0;
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+     }
+
+    .admin-nav a.active {
+        background-color: transparent;
+        box-shadow: none;
+        color: var(--primary-color);
+    }
+
+     .admin-nav a.active i {
+        color: var(--primary-color);
+     }
+
+     .admin-header {
+         flex-direction: column;
+         align-items: flex-start;
+     }
+
+     .admin-search-form {
+         margin-left: 0;
+         margin-top: 1rem;
+         width: 100%;
+     }
+
+      .admin-card-footer {
+          flex-direction: column;
+          gap: 0.5rem;
+      }
+
+       .status-form, .delete-form {
+           width: 100%;
+           margin-right: 0;
+       }
+
+        .status-form select, .btn {
+            width: 100%;
+        }
+}
+
+.status-controls {
+    flex-grow: 1; /* Allow status controls to take available space in horizontal layout */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    border: none;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .status-controls {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+    
+    .status-controls .admin-form-input,
+    .status-controls .btn-primary {
+        width: 100%;
+    }
+}
+
+.admin-form-input {
+    width: 300px;
+    min-height: 80px;
+    max-height: 150px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-form-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.admin-form-input option {
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: white;
+    color: var(--text-color);
+}
+
+.admin-form-input option:first-child {
+    color: var(--text-muted);
+}
+
+/* Success Message Styles */
+.admin-success-message {
+    background-color: var(--success-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    display: inline-block;
+    box-shadow: var(--card-shadow);
+}
+
+/* Ensure forms within button-group align items */
+.button-group .status-form,
+.button-group .delete-form {
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure buttons within forms take up necessary space */
+.button-group .status-form button,
+.button-group .delete-form button {
+    flex-shrink: 0;
+    width: auto; /* Ensure buttons size based on content/padding */
+} 
